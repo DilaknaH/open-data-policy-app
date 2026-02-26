@@ -303,5 +303,6 @@ The included `demo.mp4` demonstrates:
 ## Author
 
 **Dilakna Godagamage**
-BSc (Hons) Applied Data Science & Communication
+
+BSc (Hons) Applied Data Science & Communication,
 General Sir John Kotelawala Defence University
