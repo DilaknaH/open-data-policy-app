@@ -1,24 +1,47 @@
+Here is your **fully updated, polished README** reflecting:
+
+- ✅ Correct left/right panel structure
+- ✅ Policy summarisation entirely in left panel
+- ✅ Scenario-based generation only in right panel
+- ✅ Updated welcome screen (no sparkle, italic tagline)
+- ✅ Accurate project structure (WelcomeScreen is inside App.js, not separate file)
+
+You can copy this directly into your `README.md`.
+
+---
+
+```markdown
 # Open Data Policy App
 
-## Intelligent Policy Summarization and Scenario Adaptation Platform
+## Intelligent Policy Summarization and Scenario-Based Policy Generation Platform
 
 ---
 
 ## 1. Project Overview
 
-The **Open Data Policy App** is a full-stack AI-powered web application designed to summarize complex data governance policies and adapt them to different organizational contexts such as Universities, Startups, and NGOs.
+The **Open Data Policy App** is a full-stack AI-powered web application designed to:
 
-The application demonstrates the practical use of Natural Language Processing (NLP) in policy analysis and automated decision-support systems, while providing a structured two-panel dashboard interface aligned with academic requirements.
+- Summarize complex open data governance policies
+- Adapt summarized policies to different organizational contexts
+
+The system demonstrates practical implementation of **Natural Language Processing (NLP)** within a structured full-stack architecture using React and Flask.
+
+The interface follows a clean dual-panel structure:
+
+- **Left Panel → Policy Summarisation**
+- **Right Panel → Scenario-Based Policy Generation**
+
+This design strictly follows the assignment requirement for structural clarity and iterative interaction.
 
 ---
 
 ## 2. Objectives
 
 - Automate summarization of governance policies
-- Adapt policies for different organizational scenarios
-- Maintain clear structural separation between summarization and scenario generation
-- Provide an intuitive and professional Night Mode interface
-- Implement scalable full-stack architecture
+- Enable scenario-based policy adaptation
+- Provide structured two-panel layout as specified
+- Support iterative regeneration of outputs
+- Demonstrate integration of frontend, backend, and NLP models
 
 ---
 
@@ -30,9 +53,11 @@ Flask REST API (Backend)
 ↓  
 HuggingFace Transformer Models  
 ↓  
-Generated Summary & Scenario Draft  
+Generated Summary  
 ↓  
-Displayed in Frontend
+Scenario-Based Policy Draft  
+↓  
+Displayed in Structured Dual Panels
 
 ---
 
@@ -41,7 +66,7 @@ Displayed in Frontend
 ### Frontend
 
 - React.js
-- CSS (Night Mode theme – deep brown with orange accents)
+- CSS (Night Mode Theme – Deep Brown + Orange Accent)
 - Fetch API
 
 ### Backend
@@ -53,73 +78,76 @@ Displayed in Frontend
 ### AI / NLP Models
 
 - **BART (facebook/bart-large-cnn)** – Abstractive Summarization
-- **GPT-2** – Scenario-based Text Generation
+- **GPT-2** – Scenario-Based Policy Draft Generation
 - HuggingFace Transformers Library
 
 ---
 
-## 5. Application Layout (Updated Structure)
-
-The application strictly follows the required two-panel layout:
+## 5. Application Structure (UI Layout)
 
 ### Left Panel – Policy Summarisation
 
-- Policy text input (manual paste)
+- Policy text input
+- Word counter
+- Summarize button
 - AI-generated summary output
-- Word count display
 - Reset functionality
-- Loading spinner
 
 ### Right Panel – Scenario-Based Policy Generation
 
-- Scenario selection dropdown:
-  - University
-  - Startup
-  - NGO
+- Scenario selection dropdown
 - Generate draft button
-- Scenario-adapted policy output
-- Collapsible session history
-- Copy & download options
+- Generated scenario-specific draft
+- Collapsible session history panel
 
-The interface supports **iteration**, allowing users to:
+The system supports iteration:
 
-- Change scenarios
-- Regenerate drafts
-- Reset and reprocess new policies
+- Users can change scenarios
+- Outputs regenerate dynamically
+- History is tracked per session
 
 ---
 
-## 6. Welcome Screen (UI Enhancements)
+## 6. Welcome Screen Design
 
-- Professional landing page
-- Animated gradient background
-- Italic tagline for visual emphasis
-- Clean “Get Started” button
-- Removed sparkle/glow hover animation for professional academic presentation
+The application includes a professional landing page with:
+
+- Project title
+- Tagline (italic styled)
+- Feature highlights
+- Clean "Get Started" button
+- Subtle animated gradient background
+- No hover sparkle effect (removed for professional polish)
 
 ---
 
 ## 7. Project Structure
+```
 
 open-data-policy-app/
-│── backend/
+│
+├── backend/
 │ ├── app.py
 │ ├── requirements.txt
 │ └── ...
-│── frontend/
+│
+├── frontend/
 │ ├── src/
-│ │ ├── App.js
-│ │ ├── App.css
+│ │ ├── App.js # Main layout & state management
+│ │ ├── App.css # Styling (Night Mode + Welcome Screen)
 │ │ ├── components/
 │ │ │ ├── PolicyUpload.js
 │ │ │ ├── SummaryPanel.js
 │ │ │ ├── ScenarioPanel.js
-│ │ │ ├── HistoryPanel.js
-│ │ │ └── WelcomeScreen.js
+│ │ │ └── HistoryPanel.js
+│ │ └── ...
 │ ├── package.json
 │ └── ...
-│── demo.mp4
+│
+├── demo.mp4
 └── README.md
+
+````
 
 ---
 
@@ -130,113 +158,162 @@ open-data-policy-app/
 ```bash
 git clone https://github.com/DilaknaH/open-data-policy-app.git
 cd open-data-policy-app
-Step 2 – Backend Setup
+````
+
+---
+
+### Step 2 – Backend Setup
+
+```bash
 cd backend
 python -m venv venv
+```
 
 Activate environment:
 
-Windows
+**Windows**
 
+```bash
 venv\Scripts\activate
+```
 
-Mac/Linux
+**Mac/Linux**
 
+```bash
 source venv/bin/activate
+```
 
 Install dependencies:
 
+```bash
 pip install -r requirements.txt
+```
 
 Run backend:
 
+```bash
 python app.py
+```
 
 Backend runs on:
 
+```
 http://localhost:5000
-Step 3 – Frontend Setup
+```
+
+---
+
+### Step 3 – Frontend Setup
 
 Open a new terminal:
 
+```bash
 cd frontend
 npm install
 npm start
+```
 
 Frontend runs on:
 
+```
 http://localhost:3000
-9. API Endpoints
-POST /summarize
+```
 
-Request
+---
 
+## 9. API Endpoints
+
+### POST /summarize
+
+**Request**
+
+```json
 {
   "text": "policy content"
 }
+```
 
-Response
+**Response**
 
+```json
 {
   "summary": "Generated summary text"
 }
-POST /generate
+```
 
-Request
+---
 
+### POST /generate
+
+**Request**
+
+```json
 {
   "summary": "summarized text",
   "scenario": "University"
 }
+```
 
-Response
+**Response**
 
+```json
 {
   "draft": "Scenario adapted policy draft"
 }
-10. Demo
-
-The included demo.mp4 demonstrates:
-
-Welcome screen
-
-Policy summarisation (Left Panel)
-
-Scenario-based generation (Right Panel)
-
-Iterative scenario switching
-
-Download functionality
-
-Reset feature
-
-Session history
-
-11. Limitations
-
-Output quality depends on input length
-
-GPT-2 may generate repetitive text
-
-Manual policy input only (no PDF upload yet)
-
-12. Future Improvements
-
-Add PDF upload support
-
-Integrate database for persistent history
-
-Improve prompt engineering
-
-Deploy fully online cloud version
-
-Add authentication system
-
-Enhance UI animations while maintaining academic professionalism
-
-Author
-
-Dilakna Godagamage
-Applied Data Science & Communication
-General Sir John Kotelawala Defence University
 ```
+
+---
+
+## 10. Key Features
+
+- Structured two-panel layout (requirement-aligned)
+- AI-powered policy summarization
+- Scenario-based policy generation
+- Dynamic regeneration capability
+- Loading indicators
+- Copy to clipboard
+- Download generated draft
+- Reset functionality
+- Session history tracking
+- Professional welcome interface
+
+---
+
+## 11. Limitations
+
+- GPT-2 may occasionally generate repetitive content
+- No PDF upload support (text input only)
+- Session history is not persisted in a database
+
+---
+
+## 12. Future Improvements
+
+- PDF document upload
+- Database integration for persistent history
+- Model fine-tuning for domain-specific policies
+- Cloud deployment
+- Authentication system
+- UI enhancement with structured export formatting
+
+---
+
+## 13. Demonstration
+
+The included `demo.mp4` demonstrates:
+
+- Welcome screen
+- Policy input
+- AI summarization
+- Scenario selection
+- Draft regeneration
+- History tracking
+- Reset functionality
+
+---
+
+## Author
+
+**Dilakna Godagamage**
+BSc (Hons) Applied Data Science & Communication
+General Sir John Kotelawala Defence University
