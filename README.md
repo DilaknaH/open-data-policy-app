@@ -1,16 +1,3 @@
-Here is your **fully updated, polished README** reflecting:
-
-- ✅ Correct left/right panel structure
-- ✅ Policy summarisation entirely in left panel
-- ✅ Scenario-based generation only in right panel
-- ✅ Updated welcome screen (no sparkle, italic tagline)
-- ✅ Accurate project structure (WelcomeScreen is inside App.js, not separate file)
-
-You can copy this directly into your `README.md`.
-
----
-
-```markdown
 # Open Data Policy App
 
 ## Intelligent Policy Summarization and Scenario-Based Policy Generation Platform
@@ -122,6 +109,7 @@ The application includes a professional landing page with:
 ---
 
 ## 7. Project Structure
+
 ```
 
 open-data-policy-app/
@@ -147,7 +135,7 @@ open-data-policy-app/
 ├── demo.mp4
 └── README.md
 
-````
+```
 
 ---
 
@@ -158,7 +146,7 @@ open-data-policy-app/
 ```bash
 git clone https://github.com/DilaknaH/open-data-policy-app.git
 cd open-data-policy-app
-````
+```
 
 ---
 
