@@ -96,7 +96,7 @@ open-data-policy-app/
 
 ### Step 1 – Clone Repository
 
-git clone https://github.com/YourUsername/open-data-policy-app.git  
+git clone https://github.com/DilaknaH/open-data-policy-app.git  
 cd open-data-policy-app
 
 ---
