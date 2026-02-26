@@ -72,8 +72,8 @@ AI Models:
 
 ### Clone Repository
 
-git clone https://github.com/DilaknaH/open-data-policy-ai-system.git  
-cd open-data-policy-ai-system
+git clone https://github.com/DilaknaH/open-data-policy-app.git  
+cd open-data-policy-app
 
 ### Backend Setup
 
