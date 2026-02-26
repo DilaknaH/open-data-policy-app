@@ -6,9 +6,9 @@
 
 ## 1. Project Overview
 
-The Open Data Policy App is a full-stack AI-powered web application designed to summarize complex data governance policies and adapt them to different organizational contexts such as Universities, Startups, and NGOs.
+The **Open Data Policy App** is a full-stack AI-powered web application designed to summarize complex data governance policies and adapt them to different organizational contexts such as Universities, Startups, and NGOs.
 
-The application demonstrates the practical use of Natural Language Processing (NLP) in policy analysis and automated decision-support systems.
+The application demonstrates the practical use of Natural Language Processing (NLP) in policy analysis and automated decision-support systems, while providing a structured two-panel dashboard interface aligned with academic requirements.
 
 ---
 
@@ -16,7 +16,8 @@ The application demonstrates the practical use of Natural Language Processing (N
 
 - Automate summarization of governance policies
 - Adapt policies for different organizational scenarios
-- Provide an intuitive and user-friendly interface
+- Maintain clear structural separation between summarization and scenario generation
+- Provide an intuitive and professional Night Mode interface
 - Implement scalable full-stack architecture
 
 ---
@@ -40,7 +41,7 @@ Displayed in Frontend
 ### Frontend
 
 - React.js
-- CSS
+- CSS (Night Mode theme – deep brown with orange accents)
 - Fetch API
 
 ### Backend
@@ -51,67 +52,96 @@ Displayed in Frontend
 
 ### AI / NLP Models
 
-- BART (facebook/bart-large-cnn) – Abstractive Summarization
-- GPT-2 – Scenario-based Text Generation
+- **BART (facebook/bart-large-cnn)** – Abstractive Summarization
+- **GPT-2** – Scenario-based Text Generation
 - HuggingFace Transformers Library
 
 ---
 
-## 5. Features
+## 5. Application Layout (Updated Structure)
+
+The application strictly follows the required two-panel layout:
+
+### Left Panel – Policy Summarisation
 
 - Policy text input (manual paste)
-- AI-powered summarization
-- Scenario-based draft generation:
+- AI-generated summary output
+- Word count display
+- Reset functionality
+- Loading spinner
+
+### Right Panel – Scenario-Based Policy Generation
+
+- Scenario selection dropdown:
   - University
   - Startup
   - NGO
-- Copy to clipboard
-- Download generated output
-- Reset functionality
-- Loading spinner indicators
-- Error handling
+- Generate draft button
+- Scenario-adapted policy output
+- Collapsible session history
+- Copy & download options
+
+The interface supports **iteration**, allowing users to:
+
+- Change scenarios
+- Regenerate drafts
+- Reset and reprocess new policies
 
 ---
 
-## 6. Project Structure
+## 6. Welcome Screen (UI Enhancements)
+
+- Professional landing page
+- Animated gradient background
+- Italic tagline for visual emphasis
+- Clean “Get Started” button
+- Removed sparkle/glow hover animation for professional academic presentation
+
+---
+
+## 7. Project Structure
 
 open-data-policy-app/
-
-│── backend/  
-│ ├── app.py  
-│ ├── requirements.txt  
+│── backend/
+│ ├── app.py
+│ ├── requirements.txt
 │ └── ...
-
-│── frontend/  
-│ ├── src/  
-│ ├── package.json  
+│── frontend/
+│ ├── src/
+│ │ ├── App.js
+│ │ ├── App.css
+│ │ ├── components/
+│ │ │ ├── PolicyUpload.js
+│ │ │ ├── SummaryPanel.js
+│ │ │ ├── ScenarioPanel.js
+│ │ │ ├── HistoryPanel.js
+│ │ │ └── WelcomeScreen.js
+│ ├── package.json
 │ └── ...
-
-│── demo.mp4  
+│── demo.mp4
 └── README.md
 
 ---
 
-## 7. Installation Guide
+## 8. Installation Guide
 
 ### Step 1 – Clone Repository
 
-git clone https://github.com/DilaknaH/open-data-policy-app.git  
+```bash
+git clone https://github.com/DilaknaH/open-data-policy-app.git
 cd open-data-policy-app
-
----
-
-### Step 2 – Backend Setup
-
-cd backend  
+Step 2 – Backend Setup
+cd backend
 python -m venv venv
 
 Activate environment:
 
-Windows:  
+Windows
+
 venv\Scripts\activate
 
-Mac/Linux:  
+Mac/Linux
+
 source venv/bin/activate
 
 Install dependencies:
@@ -123,104 +153,90 @@ Run backend:
 python app.py
 
 Backend runs on:
+
 http://localhost:5000
-
----
-
-### Step 3 – Frontend Setup
+Step 3 – Frontend Setup
 
 Open a new terminal:
 
-cd frontend  
-npm install  
+cd frontend
+npm install
 npm start
 
 Frontend runs on:
+
 http://localhost:3000
+9. API Endpoints
+POST /summarize
 
----
+Request
 
-## 8. API Endpoints
-
-### POST /summarize
-
-Request:
 {
-"text": "policy content"
+  "text": "policy content"
 }
 
-Response:
+Response
+
 {
-"summary": "Generated summary text"
+  "summary": "Generated summary text"
+}
+POST /generate
+
+Request
+
+{
+  "summary": "summarized text",
+  "scenario": "University"
 }
 
----
+Response
 
-### POST /generate
-
-Request:
 {
-"summary": "summarized text",
-"scenario": "University"
+  "draft": "Scenario adapted policy draft"
 }
+10. Demo
 
-Response:
-{
-"draft": "Scenario adapted policy draft"
-}
+The included demo.mp4 demonstrates:
 
----
+Welcome screen
 
-## 9. Deployment Options
+Policy summarisation (Left Panel)
 
-### Cloud Deployment
+Scenario-based generation (Right Panel)
 
-Backend → Render / Heroku / Azure  
-Frontend → Vercel / Netlify
+Iterative scenario switching
 
-### Docker Deployment
+Download functionality
 
-Use Dockerfile and docker-compose for containerized execution.
+Reset feature
 
-### Local Start Script
+Session history
 
-Create a start.bat file to run backend and frontend together.
+11. Limitations
 
----
+Output quality depends on input length
 
-## 10. Demo
+GPT-2 may generate repetitive text
 
-A demonstration video (demo.mp4) is included showing:
+Manual policy input only (no PDF upload yet)
 
-- Policy input
-- AI summarization
-- Scenario selection
-- Generation of different drafts
-- Download functionality
-- Reset feature
+12. Future Improvements
 
----
+Add PDF upload support
 
-## 11. Limitations
+Integrate database for persistent history
 
-- Output quality depends on input length
-- GPT-2 may generate repetitive text
-- Manual policy input (no PDF upload yet)
+Improve prompt engineering
 
----
+Deploy fully online cloud version
 
-## 12. Future Improvements
+Add authentication system
 
-- Add PDF upload support
-- Integrate database for history tracking
-- Improve prompt engineering
-- Deploy fully online cloud version
-- Add authentication system
+Enhance UI animations while maintaining academic professionalism
 
----
+Author
 
-## Author
-
-Dilakna Godagamage  
-Applied Data Science & Communication  
+Dilakna Godagamage
+Applied Data Science & Communication
 General Sir John Kotelawala Defence University
+```

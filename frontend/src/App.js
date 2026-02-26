@@ -58,21 +58,26 @@ function App() {
 
   return (
     <div className="container">
+      {/* LEFT PANEL → POLICY SUMMARISATION */}
       <div className="panel card">
         <h1 className="app-title">Open Data Policy Summarizer</h1>
+
         <PolicyUpload
           setSummary={setSummary}
           setLoading={setLoadingSummary}
           resetSignal={resetSignal}
           addToHistory={addToHistory}
         />
+
+        <SummaryPanel summary={summary} loading={loadingSummary} />
+
         <button className="reset-btn" onClick={handleReset}>
           Reset All
         </button>
       </div>
 
+      {/* RIGHT PANEL → SCENARIO-BASED GENERATION ONLY */}
       <div className="panel card">
-        <SummaryPanel summary={summary} loading={loadingSummary} />
         <ScenarioPanel
           summary={summary}
           setLoading={setLoadingScenario}
@@ -80,6 +85,7 @@ function App() {
           addToHistory={addToHistory}
           loading={loadingScenario}
         />
+
         <HistoryPanel history={history} clearHistory={clearHistory} />
       </div>
     </div>
