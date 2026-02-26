@@ -6,9 +6,9 @@
 
 ## 1. Project Overview
 
-The Open Data Policy AI System is a full-stack AI-powered web application designed to summarize complex data governance policies and adapt them to different organizational contexts such as Universities, Startups, and NGOs.
+The Open Data Policy App is a full-stack AI-powered web application designed to summarize complex data governance policies and adapt them to different organizational contexts such as Universities, Startups, and NGOs.
 
-The system demonstrates the practical application of Natural Language Processing (NLP) in policy analysis and automated decision-support systems.
+The application demonstrates the practical use of Natural Language Processing (NLP) in policy analysis and automated decision-support systems.
 
 ---
 
@@ -16,8 +16,8 @@ The system demonstrates the practical application of Natural Language Processing
 
 - Automate summarization of governance policies
 - Adapt policies for different organizational scenarios
-- Provide an intuitive user interface
-- Implement scalable AI architecture
+- Provide an intuitive and user-friendly interface
+- Implement scalable full-stack architecture
 
 ---
 
@@ -25,7 +25,7 @@ The system demonstrates the practical application of Natural Language Processing
 
 User Input (React Frontend)  
 ↓  
-Flask REST API  
+Flask REST API (Backend)  
 ↓  
 HuggingFace Transformer Models  
 ↓  
@@ -37,89 +37,185 @@ Displayed in Frontend
 
 ## 4. Technology Stack
 
-Frontend:
+### Frontend
 
 - React.js
 - CSS
 - Fetch API
 
-Backend:
+### Backend
 
 - Python
 - Flask
 - Flask-CORS
 
-AI Models:
+### AI / NLP Models
 
-- BART (facebook/bart-large-cnn) – Summarization
-- GPT-2 – Draft Generation
+- BART (facebook/bart-large-cnn) – Abstractive Summarization
+- GPT-2 – Scenario-based Text Generation
+- HuggingFace Transformers Library
 
 ---
 
 ## 5. Features
 
-- Policy text input
+- Policy text input (manual paste)
 - AI-powered summarization
-- Scenario-based draft generation
-- Copy & download options
-- Reset & history
+- Scenario-based draft generation:
+  - University
+  - Startup
+  - NGO
+- Copy to clipboard
+- Download generated output
+- Reset functionality
+- Loading spinner indicators
 - Error handling
-- Loading indicators
 
 ---
 
-## 6. Installation Guide
+## 6. Project Structure
 
-### Clone Repository
+open-data-policy-app/
 
-git clone https://github.com/DilaknaH/open-data-policy-app.git  
+│── backend/  
+│ ├── app.py  
+│ ├── requirements.txt  
+│ └── ...
+
+│── frontend/  
+│ ├── src/  
+│ ├── package.json  
+│ └── ...
+
+│── demo.mp4  
+└── README.md
+
+---
+
+## 7. Installation Guide
+
+### Step 1 – Clone Repository
+
+git clone https://github.com/YourUsername/open-data-policy-app.git  
 cd open-data-policy-app
 
-### Backend Setup
+---
+
+### Step 2 – Backend Setup
 
 cd backend  
-python -m venv venv  
-venv\Scripts\activate  
-pip install -r requirements.txt  
+python -m venv venv
+
+Activate environment:
+
+Windows:  
+venv\Scripts\activate
+
+Mac/Linux:  
+source venv/bin/activate
+
+Install dependencies:
+
+pip install -r requirements.txt
+
+Run backend:
+
 python app.py
 
-### Frontend Setup
+Backend runs on:
+http://localhost:5000
+
+---
+
+### Step 3 – Frontend Setup
+
+Open a new terminal:
 
 cd frontend  
 npm install  
 npm start
 
----
-
-## 7. API Endpoints
-
-POST /summarize  
-POST /generate
+Frontend runs on:
+http://localhost:3000
 
 ---
 
-## 8. Deployment
+## 8. API Endpoints
 
-Backend → Render  
-Frontend → Vercel
+### POST /summarize
+
+Request:
+{
+"text": "policy content"
+}
+
+Response:
+{
+"summary": "Generated summary text"
+}
 
 ---
 
-## 9. Limitations
+### POST /generate
 
-- Output quality depends on input size
-- GPT-2 may produce repetitive text
-- No direct PDF upload support
+Request:
+{
+"summary": "summarized text",
+"scenario": "University"
+}
+
+Response:
+{
+"draft": "Scenario adapted policy draft"
+}
 
 ---
 
-## 10. Future Improvements
+## 9. Deployment Options
 
-- PDF upload feature
-- Database integration
-- Improved prompt engineering
-- Larger language models
-- Full cloud deployment
+### Cloud Deployment
+
+Backend → Render / Heroku / Azure  
+Frontend → Vercel / Netlify
+
+### Docker Deployment
+
+Use Dockerfile and docker-compose for containerized execution.
+
+### Local Start Script
+
+Create a start.bat file to run backend and frontend together.
+
+---
+
+## 10. Demo
+
+A demonstration video (demo.mp4) is included showing:
+
+- Policy input
+- AI summarization
+- Scenario selection
+- Generation of different drafts
+- Download functionality
+- Reset feature
+
+---
+
+## 11. Limitations
+
+- Output quality depends on input length
+- GPT-2 may generate repetitive text
+- Manual policy input (no PDF upload yet)
+
+---
+
+## 12. Future Improvements
+
+- Add PDF upload support
+- Integrate database for history tracking
+- Improve prompt engineering
+- Deploy fully online cloud version
+- Add authentication system
 
 ---
 
