@@ -152,3 +152,76 @@ button:active {
   border-radius: 6px;
   font-size: 0.85rem;
 }
+
+/* --- Welcome Screen Styles --- */
+.welcome-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(-45deg, #1c1c1c, #2a2a2a, #3a3a3a, #1c1c1c);
+  background-size: 400% 400%;
+  animation: gradientShift 12s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.welcome-box {
+  background-color: #2a2a2a;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  text-align: center;
+}
+
+.welcome-box h1 {
+  font-size: 2.5rem;
+  color: #ff9800;
+  margin-bottom: 12px;
+}
+
+.welcome-tagline {
+  font-size: 1.1rem;
+  color: #ffb74d;
+  margin-bottom: 24px;
+  font-weight: 400;
+}
+
+.welcome-features {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 24px 0;
+  color: #ffb74d;
+  font-size: 1rem;
+}
+.welcome-features li {
+  margin-bottom: 8px;
+}
+
+.get-started-btn {
+  background-color: #ff9800;
+  color: #1c1c1c;
+  padding: 14px 28px;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 700;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
+}
+
+.get-started-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 16px #ff9800;
+}
