@@ -34,16 +34,16 @@ This design strictly follows the assignment requirement for structural clarity a
 
 ## 3. System Architecture
 
-User Input (React Frontend)  
-↓  
-Flask REST API (Backend)  
-↓  
-HuggingFace Transformer Models  
-↓  
-Generated Summary  
-↓  
-Scenario-Based Policy Draft  
-↓  
+User Input (React Frontend)
+↓
+Flask REST API (Backend)
+↓
+HuggingFace Transformer Models
+↓
+Generated Summary
+↓
+Scenario-Based Policy Draft
+↓
 Displayed in Structured Dual Panels
 
 ---
@@ -111,35 +111,35 @@ The application includes a professional landing page with:
 ## 7. Project Structure
 
 ```
-
 open-data-policy-app/
 │
 ├── backend/
-│ ├── app.py
-│ ├── requirements.txt
-│ └── ...
+│   ├── app.py         # Combined backend + frontend server
+│   ├── requirements.txt
+│   └── ...
 │
 ├── frontend/
-│ ├── src/
-│ │ ├── App.js # Main layout & state management
-│ │ ├── App.css # Styling (Night Mode + Welcome Screen)
-│ │ ├── components/
-│ │ │ ├── PolicyUpload.js
-│ │ │ ├── SummaryPanel.js
-│ │ │ ├── ScenarioPanel.js
-│ │ │ └── HistoryPanel.js
-│ │ └── ...
-│ ├── package.json
-│ └── ...
+│   ├── src/
+│   │   ├── App.js     # Main layout & state management
+│   │   ├── App.css    # Styling (Night Mode + Welcome Screen)
+│   │   ├── components/
+│   │   │   ├── PolicyUpload.js
+│   │   │   ├── SummaryPanel.js
+│   │   │   ├── ScenarioPanel.js
+│   │   │   └── HistoryPanel.js
+│   │   └── ...
+│   ├── package.json
+│   └── ...
 │
 ├── demo.mp4
 └── README.md
-
 ```
+
+> **Note:** Frontend is now served through Flask backend, so a separate `npm start` is no longer required for local testing.
 
 ---
 
-## 8. Installation Guide
+## 8. Installation & Run Guide
 
 ### Step 1 – Clone Repository
 
@@ -150,7 +150,7 @@ cd open-data-policy-app
 
 ---
 
-### Step 2 – Backend Setup
+### Step 2 – Setup Backend (with integrated frontend)
 
 ```bash
 cd backend
@@ -177,35 +177,19 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-Run backend:
+Run the app (frontend + backend on same server):
 
 ```bash
 python app.py
 ```
 
-Backend runs on:
+The application will now run at:
 
 ```
 http://localhost:5000
 ```
 
----
-
-### Step 3 – Frontend Setup
-
-Open a new terminal:
-
-```bash
-cd frontend
-npm install
-npm start
-```
-
-Frontend runs on:
-
-```
-http://localhost:3000
-```
+> Open this URL in your browser. The React frontend will load automatically, and all API calls work through the same Flask server.
 
 ---
 
@@ -303,6 +287,5 @@ The included `demo.mp4` demonstrates:
 ## Author
 
 **Dilakna Godagamage**
-
-BSc (Hons) Applied Data Science & Communication,
+BSc (Hons) Applied Data Science & Communication
 General Sir John Kotelawala Defence University
