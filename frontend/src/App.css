@@ -1,0 +1,154 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Lora", serif;
+  background-color: #1c1c1c; /* deep brown */
+  color: #f5f5f5;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  padding: 20px;
+  gap: 20px;
+}
+
+.panel {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.card {
+  background-color: #2a2a2a;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+  padding: 20px;
+}
+
+.app-title {
+  font-size: 2rem;
+  font-weight: 700;
+  font-family: "Lora", serif;
+  color: #ff9800; /* orange accent */
+  margin-bottom: 20px;
+}
+
+h2,
+h3 {
+  color: #ffb74d; /* lighter orange */
+  margin-bottom: 10px;
+  font-weight: 600;
+  font-family: "Lora", serif;
+}
+
+textarea,
+input,
+select {
+  width: 100%;
+  background-color: #3a3a3a;
+  color: #f5f5f5;
+  border: 1px solid #555;
+  border-radius: 6px;
+  padding: 10px;
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+  font-family: "Lora", serif;
+}
+
+/* Unified button style */
+button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  font-family: "Lora", serif;
+  transition: all 0.2s ease;
+  margin: 6px 6px 6px 0;
+  box-shadow: 0 3px rgba(0, 0, 0, 0.4);
+}
+
+button:active {
+  box-shadow: 0 1px rgba(0, 0, 0, 0.4);
+  transform: translateY(2px);
+}
+
+/* Button color variants */
+.primary-btn {
+  background-color: #ff9800;
+  color: #1c1c1c;
+}
+.primary-btn:hover {
+  background-color: #fb8c00;
+}
+
+.copy-btn {
+  background-color: #ffb74d;
+  color: #1c1c1c;
+}
+.copy-btn:hover {
+  background-color: #ffa726;
+}
+
+.download-btn {
+  background-color: #f57c00;
+  color: #1c1c1c;
+}
+.download-btn:hover {
+  background-color: #ef6c00;
+}
+
+.reset-btn {
+  background-color: #e64a19;
+  color: #fff;
+}
+.reset-btn:hover {
+  background-color: #d84315;
+}
+
+/* Word count */
+.word-count {
+  font-size: 0.85rem;
+  color: #ff9800;
+  margin-bottom: 8px;
+}
+
+/* Spinner */
+.spinner {
+  border: 4px solid #444;
+  border-top: 4px solid #ff9800;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  animation: spin 1s linear infinite;
+  margin: 10px auto;
+}
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* History panel */
+.history-panel {
+  margin-top: 20px;
+}
+.history-header {
+  cursor: pointer;
+  color: #ff9800;
+  font-weight: 600;
+}
+.history-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin-top: 10px;
+}
+.history-list li {
+  margin-bottom: 6px;
+  background-color: #3a3a3a;
+  padding: 6px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
