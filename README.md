@@ -1,4 +1,4 @@
-# Open Data Policy AI System
+# Open Data Policy App
 
 ## Intelligent Policy Summarization and Scenario Adaptation Platform
 
