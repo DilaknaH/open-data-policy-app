@@ -4,158 +4,190 @@
 
 ---
 
-## 1. Project Overview
+# 1. Project Overview
 
-The **Open Data Policy App** is a full-stack AI-powered web application designed to:
+The **Open Data Policy App** is a full-stack AI-powered web application designed to intelligently process complex governance and regulatory documents.
 
-- Summarize complex open data governance policies
-- Adapt summarized policies to multiple organizational contexts
-- Allow direct **file upload for policy processing**
-- Demonstrate real-world NLP integration within a structured full-stack system
+The system performs two core tasks:
 
-The system implements **Natural Language Processing (NLP)** using transformer-based models and follows a clean dual-panel architecture:
+- Abstractive policy summarization
+- Scenario-based policy transformation
 
-- **Left Panel → Policy Summarisation**
-- **Right Panel → Scenario-Based Policy Generation**
-
-The application now supports both:
+It allows:
 
 - Manual text input
-- File upload (policy documents)
+- Direct file upload (text-based documents)
+- Real-time AI-driven draft generation
+- Structured academic dual-panel interaction
 
-All components run on a **single Flask server**, serving both backend API and React frontend.
-
----
-
-## 2. Objectives
-
-- Automate summarization of governance and regulatory documents
-- Enable scenario-based adaptation of a single policy into multiple contexts
-- Provide structured two-panel academic layout
-- Support file-based document processing
-- Demonstrate practical integration of AI models within a deployable architecture
+The application runs on a **single Flask server**, serving both backend APIs and the React frontend.
 
 ---
 
-## 3. Scenario Definitions
+# 2. System Purpose
 
-The system adapts the same summarized policy into three realistic organizational contexts. This demonstrates how governance frameworks shift based on institutional priorities.
+Modern governance documents are lengthy, technical, and difficult to adapt across institutions.
 
----
+This platform demonstrates how transformer-based NLP models can:
 
-### 1️⃣ Research Universities
-
-**Target Context:** Academic institutions and research bodies
-
-**Focus Areas:**
-
-- Research transparency and open access publishing
-- Ethical handling of research datasets
-- Student and faculty data privacy
-- Compliance with institutional review boards (IRBs)
-- Secure sharing of datasets for academic collaboration
-
-**Priority Shift:**
-Emphasis on **academic integrity, ethical research governance, and controlled data dissemination**.
+- Extract structured summaries from complex policies
+- Adapt a single governance framework into multiple organizational contexts
+- Maintain structural consistency across generated outputs
+- Reduce repetition and incomplete generation issues through controlled prompt design
 
 ---
 
-### 2️⃣ Startups & Technology Companies
+# 3. Core Functional Design
 
-**Target Context:** Innovation-driven private sector organizations
+The interface follows a structured dual-panel architecture:
 
-**Focus Areas:**
+LEFT PANEL
+→ Policy Summarisation
 
-- Regulatory compliance and data protection laws
-- Secure API-based data sharing
-- Product innovation using open datasets
-- Intellectual property considerations
-- Cybersecurity and risk management
+RIGHT PANEL
+→ Scenario-Based Policy Generation
 
-**Priority Shift:**
-Emphasis on **innovation, scalability, commercial sustainability, and secure data utilization**.
+Processing Flow:
+
+User Input / File Upload
+↓
+Flask REST API
+↓
+Transformer Models (Summarization + Generation)
+↓
+Structured Summary
+↓
+Scenario-Specific Policy Draft
+↓
+Rendered in UI
 
 ---
 
-### 3️⃣ NGOs & Social Impact Organizations
+# 4. Scenario Adaptation Framework
 
-**Target Context:** Non-profit and humanitarian organizations
+The system transforms one summarized policy into three differentiated institutional contexts.
 
-**Focus Areas:**
+---
 
-- Donor transparency and reporting
-- Beneficiary data protection
+## 1️⃣ Research Universities
+
+Target Context: Academic institutions
+
+Strategic Focus:
+
+- Research governance frameworks
+- Ethical review compliance
+- Institutional data protection standards
+- Academic transparency
+- Controlled scholarly data dissemination
+
+Priority Emphasis:
+Academic integrity, structured oversight, and responsible research data management.
+
+---
+
+## 2️⃣ Startups & Technology Companies
+
+Target Context: Innovation-driven private sector entities
+
+Strategic Focus:
+
+- Regulatory compliance
+- Scalable AI adoption
+- Secure API and data exchange
+- Intellectual property governance
+- Cybersecurity integration
+
+Priority Emphasis:
+Commercial sustainability, innovation enablement, and regulatory risk mitigation.
+
+---
+
+## 3️⃣ NGOs & Social Impact Organizations
+
+Target Context: Non-profit and humanitarian bodies
+
+Strategic Focus:
+
+- Donor accountability
 - Ethical data collection in vulnerable communities
-- Community accountability
-- Responsible use of open data for advocacy
+- Beneficiary privacy safeguards
+- Transparent reporting frameworks
+- Responsible data advocacy
 
-**Priority Shift:**
-Emphasis on **trust, ethical responsibility, and social accountability**.
-
----
-
-## 4. System Architecture
-
-User Input / File Upload (React Frontend)
-↓
-Flask REST API (Backend)
-↓
-HuggingFace Transformer Models
-↓
-Generated Summary
-↓
-Scenario-Based Policy Draft
-↓
-Displayed in Dual Panel Interface
+Priority Emphasis:
+Trust, ethical responsibility, and community-centered governance.
 
 ---
 
-## 5. Technology Stack
+# 5. AI Architecture
 
-### Frontend
+The system integrates transformer-based NLP models:
+
+- **facebook/bart-large-cnn**
+  → Abstractive summarization
+
+- **GPT-2 (controlled generation)**
+  → Scenario-based structured policy drafting
+
+Improvements implemented:
+
+- Repetition control
+- Structured section-based generation
+- Length stabilization
+- Prompt refinement for differentiated outputs
+- Faster inference configuration
+
+---
+
+# 6. Technology Stack
+
+Frontend
 
 - React.js
 - CSS (Professional Night Mode Theme)
 - Fetch API
 
-### Backend
+Backend
 
 - Python
 - Flask
 - Flask-CORS
 
-### AI / NLP Models
+AI Layer
 
-- **Hugging Face Transformers Library**
-- **Facebook AI BART (facebook/bart-large-cnn)** – Abstractive Summarization
-- **OpenAI GPT-2** – Scenario-Based Draft Generation
+- Hugging Face Transformers
+- PyTorch
+
+Deployment
+
+- Single-server architecture (Flask serves frontend build + APIs)
 
 ---
 
-## 6. Key Features
+# 7. Key Features
 
-- Dual-panel structured academic layout
+- Dual-panel academic layout
 - AI-powered policy summarization
-- Scenario-based policy drafting
-- **New: File upload support for policy documents**
-- Dynamic draft regeneration
+- Scenario-based adaptive drafting
+- File upload support (text documents)
+- Dynamic regeneration
+- Copy-to-clipboard
+- Download draft functionality
 - Word counter
-- Copy-to-clipboard functionality
-- Download generated draft
-- Reset functionality
-- Collapsible session history
-- Professional landing page
-- Single-server deployment (Flask serves frontend + backend)
+- Reset system
+- Session history panel
+- Single-server deployment
 
 ---
 
-## 7. Application Structure
+# 8. Application Structure
 
 ```
 open-data-policy-app/
 │
 ├── backend/
-│   ├── app.py                # Combined backend + frontend server
+│   ├── app.py
 │   ├── requirements.txt
 │   └── ...
 │
@@ -164,53 +196,49 @@ open-data-policy-app/
 │   │   ├── App.js
 │   │   ├── App.css
 │   │   ├── components/
-│   │   │   ├── PolicyUpload.js     # File upload component
+│   │   │   ├── PolicyUpload.js
 │   │   │   ├── SummaryPanel.js
 │   │   │   ├── ScenarioPanel.js
 │   │   │   ├── HistoryPanel.js
 │   │   │   └── ...
-│   │   └── ...
 │   └── package.json
 │
-├── Policy_Sample/            # Sample policy documents for testing
-│   ├── sample_policy.txt
+├── Policy_Sample/
+│   ├── sample_policy.pdf
 │
 ├── demo.mp4
 └── README.md
 ```
 
-> Frontend build is served directly through Flask.
-> No separate `npm start` required after build.
+Frontend production build is served directly through Flask.
 
 ---
 
-## 8. Installation & Run Guide
+# 9. Installation & Run Guide
 
-### Clone Repository
+Clone repository:
 
 ```bash
 git clone https://github.com/DilaknaH/open-data-policy-app.git
 cd open-data-policy-app
 ```
 
----
-
-### Backend Setup
+Backend setup:
 
 ```bash
 cd backend
 python -m venv venv
 ```
 
-Activate environment:
+Activate:
 
-**Windows**
+Windows:
 
 ```bash
 venv\Scripts\activate
 ```
 
-**Mac/Linux**
+Mac/Linux:
 
 ```bash
 source venv/bin/activate
@@ -222,13 +250,13 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-Run the application:
+Run server:
 
 ```bash
 python app.py
 ```
 
-Open in browser:
+Access:
 
 ```
 http://localhost:5000
@@ -236,11 +264,11 @@ http://localhost:5000
 
 ---
 
-## 9. API Endpoints
+# 10. API Endpoints
 
-### POST `/summarize`
+POST `/summarize`
 
-**Request**
+Request:
 
 ```json
 {
@@ -248,19 +276,19 @@ http://localhost:5000
 }
 ```
 
-**Response**
+Response:
 
 ```json
 {
-  "summary": "Generated summary text"
+  "summary": "Generated summary"
 }
 ```
 
 ---
 
-### POST `/generate`
+POST `/generate`
 
-**Request**
+Request:
 
 ```json
 {
@@ -269,57 +297,58 @@ http://localhost:5000
 }
 ```
 
-**Response**
+Response:
 
 ```json
 {
-  "draft": "Scenario adapted policy draft"
+  "draft": "Scenario-adapted policy draft"
 }
 ```
 
 ---
 
-## 10. Academic & Practical Contribution
+# 11. Academic & Practical Contribution
 
-This project demonstrates:
+This system demonstrates:
 
-- Practical NLP implementation
-- Transformer-based summarization
-- Controlled generative adaptation
-- Full-stack integration (React + Flask)
-- Scenario-aware policy transformation
-- Single-server production deployment
+- Applied transformer-based NLP
+- Scenario-aware controlled generation
+- Governance-focused AI modeling
+- Full-stack AI system deployment
+- Structured prompt engineering for policy adaptation
 
-It serves as both:
+It serves as:
 
 - A portfolio-ready AI system
-- A foundation for future research in governance-aware NLP systems
+- A research foundation for governance-aware NLP systems
+- A scalable base for domain-specific model fine-tuning
 
 ---
 
-## 11. Limitations
+# 12. Current Limitations
 
-- GPT-2 may generate occasional repetition
-- File upload currently supports text-based documents only
-- No database persistence for history
-- No user authentication system
+- GPT-2 is not fine-tuned on governance-specific corpora
+- Only text-based file upload supported
+- No persistent database storage
+- No authentication or user roles
 
 ---
 
-## 12. Future Improvements
+# 13. Future Improvements
 
 - PDF & DOCX structured parsing
-- Database integration (persistent history)
-- Fine-tuned domain-specific model
-- Cloud deployment
+- Fine-tuned governance language model
+- Database integration
 - Role-based access control
-- Structured export formatting (PDF reports)
+- Policy comparison engine
+- Structured PDF export reports
+- Cloud deployment
 
 ---
 
-## 13. Author
+# 14. Author
 
-**Dilakna Godagamage**
+_Dilakna Godagamage_
 BSc (Hons) Applied Data Science & Communication
 General Sir John Kotelawala Defence University
 
