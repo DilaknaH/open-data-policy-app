@@ -204,7 +204,8 @@ open-data-policy-app/
 │   └── package.json
 │
 ├── Policy_Sample/
-│   ├── sample_policy 1.pdf
+│   ├── sample_policy.pdf
+│   └── ...
 │
 ├── demo.mp4
 └── README.md
@@ -349,7 +350,7 @@ It serves as:
 
 # 14. Author
 
-_Dilakna Godagamage_
+Dilakna Godagamage
 BSc (Hons) Applied Data Science & Communication
 General Sir John Kotelawala Defence University
 
