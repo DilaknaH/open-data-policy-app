@@ -33,7 +33,7 @@ This platform demonstrates how transformer-based NLP models can:
 - Extract structured summaries from complex policies
 - Adapt a single governance framework into multiple organizational contexts
 - Maintain structural consistency across generated outputs
-- Reduce repetition and incomplete generation issues through controlled prompt design
+- Generate faster, accurate, and dynamic scenario drafts
 
 ---
 
@@ -41,19 +41,16 @@ This platform demonstrates how transformer-based NLP models can:
 
 The interface follows a structured dual-panel architecture:
 
-LEFT PANEL
-→ Policy Summarisation
+**LEFT PANEL** → Policy Summarisation
+**RIGHT PANEL** → Scenario-Based Policy Generation
 
-RIGHT PANEL
-→ Scenario-Based Policy Generation
-
-Processing Flow:
+**Processing Flow**:
 
 User Input / File Upload
 ↓
 Flask REST API
 ↓
-Transformer Models (Summarization + Generation)
+Transformer Models (Summarization + Scenario Generation)
 ↓
 Structured Summary
 ↓
@@ -65,7 +62,7 @@ Rendered in UI
 
 # 4. Scenario Adaptation Framework
 
-The system transforms one summarized policy into three differentiated institutional contexts.
+The system transforms one summarized policy into three differentiated institutional contexts dynamically.
 
 ---
 
@@ -124,42 +121,42 @@ Trust, ethical responsibility, and community-centered governance.
 
 The system integrates transformer-based NLP models:
 
-- **facebook/bart-large-cnn**
-  → Abstractive summarization
+- **sshleifer/distilbart-cnn-12-6**
+  → Fast CPU-friendly abstractive summarization
 
-- **GPT-2 (controlled generation)**
-  → Scenario-based structured policy drafting
+- **Dynamic Rule-Based Scenario Generator**
+  → Scenario-adapted policy drafts with interpretation, recommendations, and conclusion
 
 Improvements implemented:
 
-- Repetition control
-- Structured section-based generation
-- Length stabilization
-- Prompt refinement for differentiated outputs
-- Faster inference configuration
+- Faster summarization (CPU-optimized)
+- Dynamic and differentiated scenario generation
+- Structured section-based output
+- Interpretation included after recommendations
+- Conclusion separated and properly spaced
 
 ---
 
 # 6. Technology Stack
 
-Frontend
+**Frontend**
 
 - React.js
 - CSS (Professional Night Mode Theme)
 - Fetch API
 
-Backend
+**Backend**
 
 - Python
 - Flask
 - Flask-CORS
 
-AI Layer
+**AI Layer**
 
 - Hugging Face Transformers
 - PyTorch
 
-Deployment
+**Deployment**
 
 - Single-server architecture (Flask serves frontend build + APIs)
 
@@ -168,11 +165,11 @@ Deployment
 # 7. Key Features
 
 - Dual-panel academic layout
-- AI-powered policy summarization
-- Scenario-based adaptive drafting
-- File upload support (text documents)
-- Dynamic regeneration
-- Copy-to-clipboard
+- AI-powered policy summarization (fast, CPU-optimized)
+- Dynamic scenario-based adaptive drafting
+- File upload support (text documents / PDFs)
+- Dynamic regeneration of scenarios
+- Copy-to-clipboard functionality
 - Download draft functionality
 - Word counter
 - Reset system
@@ -209,7 +206,6 @@ open-data-policy-app/
 │
 ├── demo.mp4
 └── README.md
-
 ```
 
 Frontend production build is served directly through Flask.
@@ -234,13 +230,13 @@ python -m venv venv
 
 Activate:
 
-Windows:
+**Windows:**
 
 ```bash
 venv\Scripts\activate
 ```
 
-Mac/Linux:
+**Mac/Linux:**
 
 ```bash
 source venv/bin/activate
@@ -268,7 +264,7 @@ http://localhost:5000
 
 # 10. API Endpoints
 
-POST `/summarize`
+**POST** `/summarize`
 
 Request:
 
@@ -282,20 +278,20 @@ Response:
 
 ```json
 {
-  "summary": "Generated summary"
+  "summary": "Generated summary (fast, CPU-optimized)"
 }
 ```
 
 ---
 
-POST `/generate`
+**POST** `/generate`
 
 Request:
 
 ```json
 {
   "summary": "summarized text",
-  "scenario": "Research University"
+  "scenario": "Research Universities"
 }
 ```
 
@@ -303,7 +299,7 @@ Response:
 
 ```json
 {
-  "draft": "Scenario-adapted policy draft"
+  "draft": "Scenario-adapted policy draft with interpretation and conclusion"
 }
 ```
 
@@ -314,9 +310,10 @@ Response:
 This system demonstrates:
 
 - Applied transformer-based NLP
-- Scenario-aware controlled generation
+- Scenario-aware structured policy generation
 - Governance-focused AI modeling
 - Full-stack AI system deployment
+- Faster summarization without losing accuracy
 - Structured prompt engineering for policy adaptation
 
 It serves as:
@@ -329,8 +326,8 @@ It serves as:
 
 # 12. Current Limitations
 
-- GPT-2 is not fine-tuned on governance-specific corpora
-- Only text-based file upload supported
+- Dynamic scenario generator is rule-based (not fully generative AI)
+- Only text-based PDF upload supported
 - No persistent database storage
 - No authentication or user roles
 
@@ -338,8 +335,9 @@ It serves as:
 
 # 13. Future Improvements
 
-- PDF & DOCX structured parsing
+- Parallelized summarization for even faster processing
 - Fine-tuned governance language model
+- PDF & DOCX structured parsing
 - Database integration
 - Role-based access control
 - Policy comparison engine
@@ -351,6 +349,7 @@ It serves as:
 # 14. Author
 
 Dilakna Godagamage
+
 BSc (Hons) Applied Data Science & Communication
 General Sir John Kotelawala Defence University
 
