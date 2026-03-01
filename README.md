@@ -1,6 +1,6 @@
 # Open Data Policy App
 
-## Intelligent Policy Summarization and Scenario-Based Policy Generation Platform
+## Intelligent Policy Summarization & Scenario-Based Policy Adaptation Platform
 
 ---
 
@@ -9,32 +9,94 @@
 The **Open Data Policy App** is a full-stack AI-powered web application designed to:
 
 - Summarize complex open data governance policies
-- Adapt summarized policies to different organizational contexts
+- Adapt summarized policies to multiple organizational contexts
+- Allow direct **file upload for policy processing**
+- Demonstrate real-world NLP integration within a structured full-stack system
 
-The system demonstrates practical implementation of **Natural Language Processing (NLP)** within a structured full-stack architecture using React and Flask.
-
-The interface follows a clean dual-panel structure:
+The system implements **Natural Language Processing (NLP)** using transformer-based models and follows a clean dual-panel architecture:
 
 - **Left Panel → Policy Summarisation**
 - **Right Panel → Scenario-Based Policy Generation**
 
-This design strictly follows the assignment requirement for structural clarity and iterative interaction.
+The application now supports both:
+
+- Manual text input
+- File upload (policy documents)
+
+All components run on a **single Flask server**, serving both backend API and React frontend.
 
 ---
 
 ## 2. Objectives
 
-- Automate summarization of governance policies
-- Enable scenario-based policy adaptation
-- Provide structured two-panel layout as specified
-- Support iterative regeneration of outputs
-- Demonstrate integration of frontend, backend, and NLP models
+- Automate summarization of governance and regulatory documents
+- Enable scenario-based adaptation of a single policy into multiple contexts
+- Provide structured two-panel academic layout
+- Support file-based document processing
+- Demonstrate practical integration of AI models within a deployable architecture
 
 ---
 
-## 3. System Architecture
+## 3. Scenario Definitions
 
-User Input (React Frontend)
+The system adapts the same summarized policy into three realistic organizational contexts. This demonstrates how governance frameworks shift based on institutional priorities.
+
+---
+
+### 1️⃣ Research Universities
+
+**Target Context:** Academic institutions and research bodies
+
+**Focus Areas:**
+
+- Research transparency and open access publishing
+- Ethical handling of research datasets
+- Student and faculty data privacy
+- Compliance with institutional review boards (IRBs)
+- Secure sharing of datasets for academic collaboration
+
+**Priority Shift:**
+Emphasis on **academic integrity, ethical research governance, and controlled data dissemination**.
+
+---
+
+### 2️⃣ Startups & Technology Companies
+
+**Target Context:** Innovation-driven private sector organizations
+
+**Focus Areas:**
+
+- Regulatory compliance and data protection laws
+- Secure API-based data sharing
+- Product innovation using open datasets
+- Intellectual property considerations
+- Cybersecurity and risk management
+
+**Priority Shift:**
+Emphasis on **innovation, scalability, commercial sustainability, and secure data utilization**.
+
+---
+
+### 3️⃣ NGOs & Social Impact Organizations
+
+**Target Context:** Non-profit and humanitarian organizations
+
+**Focus Areas:**
+
+- Donor transparency and reporting
+- Beneficiary data protection
+- Ethical data collection in vulnerable communities
+- Community accountability
+- Responsible use of open data for advocacy
+
+**Priority Shift:**
+Emphasis on **trust, ethical responsibility, and social accountability**.
+
+---
+
+## 4. System Architecture
+
+User Input / File Upload (React Frontend)
 ↓
 Flask REST API (Backend)
 ↓
@@ -44,16 +106,16 @@ Generated Summary
 ↓
 Scenario-Based Policy Draft
 ↓
-Displayed in Structured Dual Panels
+Displayed in Dual Panel Interface
 
 ---
 
-## 4. Technology Stack
+## 5. Technology Stack
 
 ### Frontend
 
 - React.js
-- CSS (Night Mode Theme – Deep Brown + Orange Accent)
+- CSS (Professional Night Mode Theme)
 - Fetch API
 
 ### Backend
@@ -64,84 +126,67 @@ Displayed in Structured Dual Panels
 
 ### AI / NLP Models
 
-- **BART (facebook/bart-large-cnn)** – Abstractive Summarization
-- **GPT-2** – Scenario-Based Policy Draft Generation
-- HuggingFace Transformers Library
+- **Hugging Face Transformers Library**
+- **Facebook AI BART (facebook/bart-large-cnn)** – Abstractive Summarization
+- **OpenAI GPT-2** – Scenario-Based Draft Generation
 
 ---
 
-## 5. Application Structure (UI Layout)
+## 6. Key Features
 
-### Left Panel – Policy Summarisation
-
-- Policy text input
+- Dual-panel structured academic layout
+- AI-powered policy summarization
+- Scenario-based policy drafting
+- **New: File upload support for policy documents**
+- Dynamic draft regeneration
 - Word counter
-- Summarize button
-- AI-generated summary output
+- Copy-to-clipboard functionality
+- Download generated draft
 - Reset functionality
-
-### Right Panel – Scenario-Based Policy Generation
-
-- Scenario selection dropdown
-- Generate draft button
-- Generated scenario-specific draft
-- Collapsible session history panel
-
-The system supports iteration:
-
-- Users can change scenarios
-- Outputs regenerate dynamically
-- History is tracked per session
+- Collapsible session history
+- Professional landing page
+- Single-server deployment (Flask serves frontend + backend)
 
 ---
 
-## 6. Welcome Screen Design
-
-The application includes a professional landing page with:
-
-- Project title
-- Tagline (italic styled)
-- Feature highlights
-- Clean "Get Started" button
-- Subtle animated gradient background
-- No hover sparkle effect (removed for professional polish)
-
----
-
-## 7. Project Structure
+## 7. Application Structure
 
 ```
 open-data-policy-app/
 │
 ├── backend/
-│   ├── app.py         # Combined backend + frontend server
+│   ├── app.py                # Combined backend + frontend server
 │   ├── requirements.txt
 │   └── ...
 │
 ├── frontend/
 │   ├── src/
-│   │   ├── App.js     # Main layout & state management
-│   │   ├── App.css    # Styling (Night Mode + Welcome Screen)
+│   │   ├── App.js
+│   │   ├── App.css
 │   │   ├── components/
-│   │   │   ├── PolicyUpload.js
+│   │   │   ├── PolicyUpload.js     # File upload component
 │   │   │   ├── SummaryPanel.js
 │   │   │   ├── ScenarioPanel.js
-│   │   │   └── HistoryPanel.js
+│   │   │   ├── HistoryPanel.js
+│   │   │   └── ...
 │   │   └── ...
-│   ├── package.json
-│   └── ...
+│   └── package.json
+│
+├── Policy_Sample/            # Sample policy documents for testing
+│   ├── sample_policy.txt
 │
 ├── demo.mp4
 └── README.md
 ```
 
-> **Note:** Frontend is now served through Flask backend, so a separate `npm start` is no longer required for local testing.
+> Frontend build is served directly through Flask.
+> No separate `npm start` required after build.
 
 ---
 
 ## 8. Installation & Run Guide
 
-### Step 1 – Clone Repository
+### Clone Repository
 
 ```bash
 git clone https://github.com/DilaknaH/open-data-policy-app.git
@@ -150,7 +195,7 @@ cd open-data-policy-app
 
 ---
 
-### Step 2 – Setup Backend (with integrated frontend)
+### Backend Setup
 
 ```bash
 cd backend
@@ -177,25 +222,23 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
-Run the app (frontend + backend on same server):
+Run the application:
 
 ```bash
 python app.py
 ```
 
-The application will now run at:
+Open in browser:
 
 ```
 http://localhost:5000
 ```
 
-> Open this URL in your browser. The React frontend will load automatically, and all API calls work through the same Flask server.
-
 ---
 
 ## 9. API Endpoints
 
-### POST /summarize
+### POST `/summarize`
 
 **Request**
 
@@ -215,14 +258,14 @@ http://localhost:5000
 
 ---
 
-### POST /generate
+### POST `/generate`
 
 **Request**
 
 ```json
 {
   "summary": "summarized text",
-  "scenario": "University"
+  "scenario": "Research University"
 }
 ```
 
@@ -236,56 +279,48 @@ http://localhost:5000
 
 ---
 
-## 10. Key Features
+## 10. Academic & Practical Contribution
 
-- Structured two-panel layout (requirement-aligned)
-- AI-powered policy summarization
-- Scenario-based policy generation
-- Dynamic regeneration capability
-- Loading indicators
-- Copy to clipboard
-- Download generated draft
-- Reset functionality
-- Session history tracking
-- Professional welcome interface
+This project demonstrates:
+
+- Practical NLP implementation
+- Transformer-based summarization
+- Controlled generative adaptation
+- Full-stack integration (React + Flask)
+- Scenario-aware policy transformation
+- Single-server production deployment
+
+It serves as both:
+
+- A portfolio-ready AI system
+- A foundation for future research in governance-aware NLP systems
 
 ---
 
 ## 11. Limitations
 
-- GPT-2 may occasionally generate repetitive content
-- No PDF upload support (text input only)
-- Session history is not persisted in a database
+- GPT-2 may generate occasional repetition
+- File upload currently supports text-based documents only
+- No database persistence for history
+- No user authentication system
 
 ---
 
 ## 12. Future Improvements
 
-- PDF document upload
-- Database integration for persistent history
-- Model fine-tuning for domain-specific policies
+- PDF & DOCX structured parsing
+- Database integration (persistent history)
+- Fine-tuned domain-specific model
 - Cloud deployment
-- Authentication system
-- UI enhancement with structured export formatting
+- Role-based access control
+- Structured export formatting (PDF reports)
 
 ---
 
-## 13. Demonstration
-
-The included `demo.mp4` demonstrates:
-
-- Welcome screen
-- Policy input
-- AI summarization
-- Scenario selection
-- Draft regeneration
-- History tracking
-- Reset functionality
-
----
-
-## Author
+## 13. Author
 
 **Dilakna Godagamage**
 BSc (Hons) Applied Data Science & Communication
 General Sir John Kotelawala Defence University
+
+---
