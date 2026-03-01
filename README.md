@@ -204,10 +204,12 @@ open-data-policy-app/
 │   └── package.json
 │
 ├── Policy_Sample/
-│   ├── sample_policy.pdf
+│   ├── sample_policy 1.pdf
+│   └── ...
 │
 ├── demo.mp4
 └── README.md
+
 ```
 
 Frontend production build is served directly through Flask.
@@ -349,6 +351,7 @@ It serves as:
 # 14. Author
 
 _Dilakna Godagamage_
+
 BSc (Hons) Applied Data Science & Communication
 General Sir John Kotelawala Defence University
 
